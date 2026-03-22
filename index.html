@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人博客系统</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="blog-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>📝 我的博客</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">文章</a></li>
+                <li><a href="#">关于</a></li>
+                <li><a href="#">联系</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="content-wrapper">
+            <section class="blog-posts">
+                <article class="post-card featured">
+                    <div class="post-image">
+                        <div class="placeholder-image">🚀</div>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="post-category">技术</span>
+                            <span class="post-date">2026-03-22</span>
+                        </div>
+                        <h2 class="post-title">如何高效学习编程：我的 5 年经验分享</h2>
+                        <p class="post-excerpt">
+                            学习编程是一条充满挑战但也充满乐趣的道路。在这篇文章中，我将分享我 5 年编程学习生涯中总结出的宝贵经验...
+                        </p>
+                        <div class="post-footer">
+                            <div class="author-info">
+                                <div class="author-avatar">A</div>
+                                <span>作者</span>
+                            </div>
+                            <button class="btn-read-more">阅读更多 →</button>
+                        </div>
+                    </div>
+                </article>
+
+                <div class="posts-grid">
+                    <article class="post-card">
+                        <div class="post-image">
+                            <div class="placeholder-image">💻</div>
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-category">前端</span>
+                                <span class="post-date">2026-03-20</span>
+                            </div>
+                            <h3>React Hooks 完全指南</h3>
+                            <p>深入理解 useState、useEffect 等常用 Hooks 的使用场景和最佳实践...</p>
+                            <button class="btn-read-more">阅读更多 →</button>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-image">
+                            <div class="placeholder-image">🎨</div>
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-category">设计</span>
+                                <span class="post-date">2026-03-18</span>
+                            </div>
+                            <h3>CSS Grid 布局入门教程</h3>
+                            <p>从零开始学习 CSS Grid，掌握现代网页布局的核心技术...</p>
+                            <button class="btn-read-more">阅读更多 →</button>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-image">
+                            <div class="placeholder-image">⚡</div>
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-category">性能</span>
+                                <span class="post-date">2026-03-15</span>
+                            </div>
+                            <h3>Web 性能优化实战技巧</h3>
+                            <p>提升网站加载速度的 10 个实用技巧，让你的网站飞起来...</p>
+                            <button class="btn-read-more">阅读更多 →</button>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-image">
+                            <div class="placeholder-image">🔧</div>
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-category">工具</span>
+                                <span class="post-date">2026-03-12</span>
+                            </div>
+                            <h3>Git 版本控制最佳实践</h3>
+                            <p>掌握 Git 的核心概念和工作流，提高团队协作效率...</p>
+                            <button class="btn-read-more">阅读更多 →</button>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-image">
+                            <div class="placeholder-image">📊</div>
+                        </div>
+                        <div class="post-content">
+                            <div class="post-meta">
+                                <span class="post-category">数据</span>
+                                <span class="post-date">2026-03-10</span>
+                            </div>
+                            <h3>JavaScript 数据处理技巧</h3>
+                            <p>学习如何使用数组方法高效地处理和转换数据...</p>
+                            <button class="btn-read-more">阅读更多 →</button>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="pagination">
+                    <button class="btn-page active">1</button>
+                    <button class="btn-page">2</button>
+                    <button class="btn-page">3</button>
+                    <button class="btn-page">下一页 →</button>
+                </div>
+            </section>
+
+            <aside class="sidebar">
+                <div class="widget">
+                    <h3>关于我</h3>
+                    <div class="about-widget">
+                        <div class="about-avatar">👨‍💻</div>
+                        <p>热爱编程的全栈开发者，专注于 Web 开发和用户体验设计。</p>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3>分类目录</h3>
+                    <ul class="category-list">
+                        <li><a href="#">技术 (15)</a></li>
+                        <li><a href="#">前端 (23)</a></li>
+                        <li><a href="#">后端 (12)</a></li>
+                        <li><a href="#">设计 (8)</a></li>
+                        <li><a href="#">工具 (10)</a></li>
+                    </ul>
+                </div>
+
+                <div class="widget">
+                    <h3>热门标签</h3>
+                    <div class="tag-cloud">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">React</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Git</span>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h3>订阅更新</h3>
+                    <form class="subscribe-form">
+                        <input type="email" placeholder="输入邮箱地址" />
+                        <button type="submit">订阅</button>
+                    </form>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="blog-footer">
+        <div class="container">
+            <p>&copy; 2026 我的博客。All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
