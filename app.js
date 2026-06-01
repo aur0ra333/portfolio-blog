@@ -7,6 +7,7 @@ const posts = [
         date: '2026-05-18',
         excerpt: '记录编辑区、实时预览、版本历史和导出功能的实现过程，以及项目中踩到的小问题。',
         emoji: 'MD',
+        readTime: '4 分钟',
         content: `
             <p>这个项目的目标很简单：做一个打开就能用的 Markdown 编辑器。左侧输入内容，右侧实时预览，写完后可以导出 Markdown、HTML 或通过浏览器保存为 PDF。</p>
 
@@ -31,6 +32,7 @@ const posts = [
         date: '2026-05-10',
         excerpt: '用指标卡、趋势图和订单表格搭建一个后台首页，并记录 Chart.js 的基本使用方式。',
         emoji: 'DB',
+        readTime: '3 分钟',
         content: `
             <p>数据看板项目主要练习后台页面的信息组织。页面包含指标卡、销售趋势、用户分布、订单状态和最近订单表格。</p>
 
@@ -48,6 +50,7 @@ const posts = [
         date: '2026-05-02',
         excerpt: '整理文章数组、分类目录、标签云和搜索过滤的实现方式。',
         emoji: 'JS',
+        readTime: '3 分钟',
         content: `
             <p>博客系统的数据先放在前端数组中，适合展示列表渲染、弹窗详情、分类和搜索这些基础交互。</p>
 
@@ -65,6 +68,7 @@ const posts = [
         date: '2026-04-26',
         excerpt: '记录 Grid、Flexbox 和移动端断点在项目里的具体使用场景。',
         emoji: 'CSS',
+        readTime: '2 分钟',
         content: `
             <p>几个静态项目都需要同时适配桌面端和移动端，因此布局上主要使用 Grid 和 Flexbox。</p>
 
@@ -82,6 +86,7 @@ const posts = [
         date: '2026-04-18',
         excerpt: '整理静态项目从仓库到在线预览的发布流程。',
         emoji: 'Git',
+        readTime: '3 分钟',
         content: `
             <p>这些项目都可以通过 GitHub Pages 发布。对纯 HTML、CSS、JavaScript 项目来说，不需要额外服务器，适合作为在线作品展示。</p>
 
@@ -103,6 +108,7 @@ const posts = [
         date: '2026-04-12',
         excerpt: '用 map、filter 和 reduce 处理列表渲染、搜索过滤和统计数据。',
         emoji: 'ARR',
+        readTime: '2 分钟',
         content: `
             <p>静态项目里经常会用数组模拟接口数据。map 适合生成列表 HTML，filter 适合搜索和分类，reduce 适合统计汇总。</p>
 
@@ -157,7 +163,10 @@ function renderPosts(filterText = '') {
                 </div>
                 <h3>${post.title}</h3>
                 <p>${post.excerpt}</p>
-                <button class="btn-read-more" onclick="openArticle(${post.id})">阅读更多 →</button>
+                <div class="post-actions">
+                    <span class="read-time">约 ${post.readTime}</span>
+                    <button class="btn-read-more" onclick="openArticle(${post.id})">阅读更多 →</button>
+                </div>
             </div>
         </article>
     `).join('');
@@ -202,6 +211,7 @@ function openArticle(id) {
         <div class="post-meta">
             <span class="post-category">${post.category}</span>
             <span class="post-date">${post.date}</span>
+            <span class="read-time">约 ${post.readTime}</span>
         </div>
         <div class="post-content-full">
             ${post.content}
