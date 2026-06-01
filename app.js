@@ -2,170 +2,129 @@
 const posts = [
     {
         id: 0,
-        title: '如何高效学习编程：我的 5 年经验分享',
-        category: '技术',
-        date: '2026-03-22',
-        excerpt: '学习编程是一条充满挑战但也充满乐趣的道路。在这篇文章中，我将分享我 5 年编程学习生涯中总结出的宝贵经验...',
-        emoji: '🚀',
+        title: '从零实现一个 Markdown 编辑器',
+        category: '项目记录',
+        date: '2026-05-18',
+        excerpt: '记录编辑区、实时预览、版本历史和导出功能的实现过程，以及项目中踩到的小问题。',
+        emoji: 'MD',
         content: `
-            <p>学习编程是一条充满挑战但也充满乐趣的道路。在这篇文章中，我将分享我 5 年编程学习生涯中总结出的宝贵经验。</p>
-            
-            <h2>1. 打好基础最重要</h2>
-            <p>很多初学者急于学习框架，而忽视了基础。数据结构、算法、计算机网络这些基础知识才是程序员的内功。</p>
-            
-            <h2>2. 多动手实践</h2>
-            <p>编程是一门实践性很强的技能。看十遍教程不如自己动手写一遍代码。建议：</p>
+            <p>这个项目的目标很简单：做一个打开就能用的 Markdown 编辑器。左侧输入内容，右侧实时预览，写完后可以导出 Markdown、HTML 或通过浏览器保存为 PDF。</p>
+
+            <h2>编辑和预览</h2>
+            <p>编辑区监听 input 事件，把文本交给 Marked.js 解析，再同步更新预览区和 HTML 源码区。这样可以保持实现轻量，也方便后续替换解析器。</p>
+
+            <h2>版本历史</h2>
+            <p>版本历史没有接后端，而是使用 LocalStorage 保存最近 20 个版本。这个方案适合静态页面演示，也能体现本地持久化的基本思路。</p>
+
+            <h2>后续改进</h2>
             <ul>
-                <li>每天至少写 2 小时代码</li>
-                <li>做项目驱动学习</li>
-                <li>参与开源项目</li>
+                <li>支持导入本地 .md 文件</li>
+                <li>增加搜索和替换</li>
+                <li>给导出的 HTML 增加自定义样式</li>
             </ul>
-            
-            <h2>3. 学会阅读文档</h2>
-            <p>官方文档是最权威的学习资料。培养阅读英文文档的能力，这将让你受益终生。</p>
-            
-            <h2>4. 保持持续学习</h2>
-            <p>技术更新很快，要保持好奇心和学习热情。建议每天抽出固定时间学习新技术。</p>
-            
-            <blockquote>编程不是关于你知道多少，而是关于你能学到多少。- 未知</blockquote>
         `
     },
     {
         id: 1,
-        title: 'React Hooks 完全指南',
+        title: '数据看板里的图表组织方式',
         category: '前端',
-        date: '2026-03-20',
-        excerpt: '深入理解 useState、useEffect 等常用 Hooks 的使用场景和最佳实践...',
-        emoji: '💻',
+        date: '2026-05-10',
+        excerpt: '用指标卡、趋势图和订单表格搭建一个后台首页，并记录 Chart.js 的基本使用方式。',
+        emoji: 'DB',
         content: `
-            <p>React Hooks 是 React 16.8 引入的新特性，让函数组件也能拥有状态和生命周期。</p>
-            
-            <h2>useState - 状态管理</h2>
-            <pre><code>const [count, setCount] = useState(0);</code></pre>
-            
-            <h2>useEffect - 副作用处理</h2>
-            <pre><code>useEffect(() => {
-    document.title = \`Count: \${count}\`;
-}, [count]);</code></pre>
-            
-            <h2>最佳实践</h2>
-            <ul>
-                <li>只在顶层调用 Hooks</li>
-                <li>只在 React 函数中调用 Hooks</li>
-                <li>使用 ESLint 插件检查 Hooks 规则</li>
-            </ul>
+            <p>数据看板项目主要练习后台页面的信息组织。页面包含指标卡、销售趋势、用户分布、订单状态和最近订单表格。</p>
+
+            <h2>页面结构</h2>
+            <p>顶部用于放页面标题和操作按钮，中间用卡片承载核心指标，下方再放图表和表格。这样信息从总览到明细逐步展开，比较符合后台系统的阅读习惯。</p>
+
+            <h2>图表更新</h2>
+            <p>销售趋势图支持切换时间范围，切换时重新生成日期标签和数据后调用 chart.update()，可以模拟真实项目中的筛选刷新流程。</p>
         `
     },
     {
         id: 2,
-        title: 'CSS Grid 布局入门教程',
-        category: '设计',
-        date: '2026-03-18',
-        excerpt: '从零开始学习 CSS Grid，掌握现代网页布局的核心技术...',
-        emoji: '🎨',
+        title: '博客系统的搜索和标签实现',
+        category: 'JavaScript',
+        date: '2026-05-02',
+        excerpt: '整理文章数组、分类目录、标签云和搜索过滤的实现方式。',
+        emoji: 'JS',
         content: `
-            <p>CSS Grid 是一个强大的二维布局系统，让复杂布局变得简单。</p>
-            
-            <h2>基本概念</h2>
-            <pre><code>.container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}</code></pre>
-            
-            <h2>常用属性</h2>
-            <ul>
-                <li>grid-template-columns: 定义列</li>
-                <li>grid-template-rows: 定义行</li>
-                <li>gap: 设置间距</li>
-            </ul>
+            <p>博客系统的数据先放在前端数组中，适合展示列表渲染、弹窗详情、分类和搜索这些基础交互。</p>
+
+            <h2>搜索逻辑</h2>
+            <p>搜索框输入关键词后，根据文章标题和分类进行过滤，再重新渲染文章列表。标签点击也会复用同一个过滤函数。</p>
+
+            <h2>弹窗详情</h2>
+            <p>文章详情通过弹窗展示，打开时禁止页面滚动，关闭后恢复。这类交互在后台系统和内容类网站中都比较常见。</p>
         `
     },
     {
         id: 3,
-        title: 'Web 性能优化实战技巧',
-        category: '性能',
-        date: '2026-03-15',
-        excerpt: '提升网站加载速度的 10 个实用技巧，让你的网站飞起来...',
-        emoji: '⚡',
+        title: '一次响应式布局调整记录',
+        category: 'CSS',
+        date: '2026-04-26',
+        excerpt: '记录 Grid、Flexbox 和移动端断点在项目里的具体使用场景。',
+        emoji: 'CSS',
         content: `
-            <p>网站性能直接影响用户体验和 SEO。以下是我总结的优化技巧：</p>
-            
-            <h2>1. 图片优化</h2>
-            <ul>
-                <li>使用 WebP 格式</li>
-                <li>实现懒加载</li>
-                <li>使用 CDN</li>
-            </ul>
-            
-            <h2>2. 代码优化</h2>
-            <ul>
-                <li>压缩 CSS 和 JS</li>
-                <li>移除未使用的代码</li>
-                <li>使用代码分割</li>
-            </ul>
+            <p>几个静态项目都需要同时适配桌面端和移动端，因此布局上主要使用 Grid 和 Flexbox。</p>
+
+            <h2>桌面端</h2>
+            <p>桌面端优先保证信息密度，例如博客采用内容区和侧边栏两列布局，数据看板采用指标卡和图表网格。</p>
+
+            <h2>移动端</h2>
+            <p>移动端把多列布局收敛为单列，同时减少按钮和卡片之间的间距，避免内容被挤压。</p>
         `
     },
     {
         id: 4,
-        title: 'Git 版本控制最佳实践',
+        title: 'GitHub Pages 部署静态项目',
         category: '工具',
-        date: '2026-03-12',
-        excerpt: '掌握 Git 的核心概念和工作流，提高团队协作效率...',
-        emoji: '🔧',
+        date: '2026-04-18',
+        excerpt: '整理静态项目从仓库到在线预览的发布流程。',
+        emoji: 'Git',
         content: `
-            <p>Git 是现代开发不可或缺的工具。以下是我总结的最佳实践：</p>
-            
-            <h2>提交规范</h2>
-            <pre><code>feat: 新功能
-fix: 修复 bug
-docs: 文档更新
-style: 代码格式
-refactor: 重构</code></pre>
-            
-            <h2>分支策略</h2>
+            <p>这些项目都可以通过 GitHub Pages 发布。对纯 HTML、CSS、JavaScript 项目来说，不需要额外服务器，适合作为在线作品展示。</p>
+
+            <h2>基本流程</h2>
             <ul>
-                <li>main: 生产环境</li>
-                <li>develop: 开发环境</li>
-                <li>feature/*: 功能分支</li>
+                <li>把项目推送到 GitHub 仓库</li>
+                <li>在仓库 Settings 中开启 Pages</li>
+                <li>选择 main 分支作为发布来源</li>
             </ul>
+
+            <h2>注意事项</h2>
+            <p>如果页面引用了相对路径资源，部署后要检查路径是否正确，尤其是图片、脚本和样式文件。</p>
         `
     },
     {
         id: 5,
-        title: 'JavaScript 数据处理技巧',
-        category: '数据',
-        date: '2026-03-10',
-        excerpt: '学习如何使用数组方法高效地处理和转换数据...',
-        emoji: '📊',
+        title: 'JavaScript 数组方法在页面渲染中的使用',
+        category: 'JavaScript',
+        date: '2026-04-12',
+        excerpt: '用 map、filter 和 reduce 处理列表渲染、搜索过滤和统计数据。',
+        emoji: 'ARR',
         content: `
-            <p>JavaScript 提供了丰富的数组方法来处理数据。</p>
-            
-            <h2>map - 转换数组</h2>
-            <pre><code>const numbers = [1, 2, 3];
-const doubled = numbers.map(n => n * 2);</code></pre>
-            
-            <h2>filter - 过滤数组</h2>
-            <pre><code>const evens = numbers.filter(n => n % 2 === 0);</code></pre>
-            
-            <h2>reduce - 汇总数据</h2>
-            <pre><code>const sum = numbers.reduce((acc, n) => acc + n, 0);</code></pre>
+            <p>静态项目里经常会用数组模拟接口数据。map 适合生成列表 HTML，filter 适合搜索和分类，reduce 适合统计汇总。</p>
+
+            <h2>列表渲染</h2>
+            <pre><code>container.innerHTML = posts.map(post => renderPost(post)).join('');</code></pre>
+
+            <h2>搜索过滤</h2>
+            <pre><code>const result = posts.filter(post => post.title.includes(keyword));</code></pre>
         `
     }
 ];
 
 // 分类和标签
 const categories = {
-    '技术': 15,
-    '前端': 23,
-    '后端': 12,
-    '设计': 8,
-    '工具': 10,
-    '性能': 6,
-    '数据': 9
+    '项目记录': 3,
+    '前端': 4,
+    'JavaScript': 3,
+    'CSS': 2,
+    '工具': 2
 };
 
-const tags = ['JavaScript', 'React', 'CSS', 'Node.js', 'Python', 'Git', 'HTML5', 'TypeScript', 'Vue', 'Webpack'];
+const tags = ['JavaScript', 'CSS', 'Marked.js', 'Chart.js', 'LocalStorage', 'GitHub Pages', '响应式布局', '项目复盘'];
 
 // 初始化
 document.addEventListener('DOMContentLoaded', () => {

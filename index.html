@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人博客系统</title>
+    <title>技术记录博客</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,12 +16,12 @@
     <header class="blog-header glass">
         <nav class="nav-container">
             <div class="logo">
-                <h1>📝 我的博客</h1>
+                <h1>技术记录</h1>
             </div>
             <div class="nav-right">
                 <div class="search-box">
                     <input type="text" id="search-input" placeholder="搜索文章..." />
-                    <button class="search-btn" onclick="searchPosts()">🔍</button>
+                    <button class="search-btn" onclick="searchPosts()">搜索</button>
                 </div>
                 <button class="theme-toggle" id="theme-toggle" title="切换主题">
                     <span class="icon">🌙</span>
@@ -41,21 +41,21 @@
             <section class="blog-posts">
                 <article class="post-card featured glass-card">
                     <div class="post-image">
-                        <div class="placeholder-image">🚀</div>
+                        <div class="placeholder-image">MD</div>
                     </div>
                     <div class="post-content">
                         <div class="post-meta">
                             <span class="post-category">技术</span>
-                            <span class="post-date">2026-03-22</span>
+                            <span class="post-date">2026-05-18</span>
                         </div>
-                        <h2 class="post-title">如何高效学习编程：我的 5 年经验分享</h2>
+                        <h2 class="post-title">从零实现一个 Markdown 编辑器</h2>
                         <p class="post-excerpt">
-                            学习编程是一条充满挑战但也充满乐趣的道路。在这篇文章中，我将分享我 5 年编程学习生涯中总结出的宝贵经验...
+                            记录编辑区、实时预览、版本历史和导出功能的实现过程，以及项目中踩到的小问题。
                         </p>
                         <div class="post-footer">
                             <div class="author-info">
-                                <div class="author-avatar">A</div>
-                                <span>作者</span>
+                                <div class="author-avatar">S</div>
+                                <span>申浩天</span>
                             </div>
                             <button class="btn-read-more" onclick="openArticle(0)">阅读更多 →</button>
                         </div>
@@ -77,8 +77,8 @@
                 <div class="widget glass-card">
                     <h3>关于我</h3>
                     <div class="about-widget">
-                        <div class="about-avatar">👨‍💻</div>
-                        <p>热爱编程的全栈开发者，专注于 Web 开发和用户体验设计。</p>
+                        <div class="about-avatar">S</div>
+                        <p>计算机科学与技术本科，记录 Web 项目、前端交互和后端学习实践。</p>
                     </div>
                 </div>
 
@@ -115,7 +115,7 @@
 
     <footer class="blog-footer glass">
         <div class="container">
-            <p>&copy; 2026 我的博客。All rights reserved.</p>
+            <p>&copy; 2026 申浩天。All rights reserved.</p>
         </div>
     </footer>
 
