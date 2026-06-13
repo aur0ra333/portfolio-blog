@@ -18,7 +18,7 @@
             <div class="nav-right">
                 <div class="search-box">
                     <input type="text" id="search-input" placeholder="搜索文章..." />
-                    <button class="search-btn" onclick="searchPosts()">搜索</button>
+                    <button class="search-btn">搜索</button>
                 </div>
                 <ul class="nav-links">
                     <li><a href="#" class="active" data-page="home">首页</a></li>
@@ -31,55 +31,34 @@
     </header>
 
     <main class="container">
-        <section class="blog-hero glass-card">
+
+        <!-- 首页 Hero（导航切换时显示/隐藏） -->
+        <section class="blog-hero glass-card" id="blog-hero">
             <div>
                 <span class="section-kicker">Project Notes</span>
                 <h2>记录项目实现、问题定位和前端练习过程</h2>
-                <p>这里不是泛泛的教程合集，而是围绕几个在线项目整理的开发记录：页面结构、数据渲染、交互逻辑、部署和复盘。</p>
+                <p>这里不是泛泛的教程合集，而是围绕多个在线项目整理的开发记录：页面结构、数据渲染、交互逻辑、部署和复盘。</p>
             </div>
             <div class="hero-topics">
-                <span>Markdown 编辑器</span>
-                <span>数据看板</span>
-                <span>JavaScript</span>
-                <span>GitHub Pages</span>
+                <span>JavaScript & TypeScript</span>
+                <span>React & Hooks</span>
+                <span>Node.js 后端</span>
+                <span>数据库优化</span>
             </div>
         </section>
 
-        <div class="content-wrapper">
+        <!-- 文章 + 侧边栏 区域 -->
+        <div class="content-wrapper" id="content-wrapper">
             <section class="blog-posts">
-                <article class="post-card featured glass-card">
-                    <div class="post-image">
-                        <div class="placeholder-image">MD</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-category">技术</span>
-                            <span class="post-date">2026-05-18</span>
-                        </div>
-                        <h2 class="post-title">从零实现一个 Markdown 编辑器</h2>
-                        <p class="post-excerpt">
-                            记录编辑区、实时预览、版本历史和导出功能的实现过程，以及项目中踩到的小问题。
-                        </p>
-                        <div class="post-footer">
-                            <div class="author-info">
-                                <div class="author-avatar">S</div>
-                                <span>申浩天</span>
-                            </div>
-                            <span class="read-time">约 4 分钟</span>
-                            <button class="btn-read-more" onclick="openArticle(0)">阅读更多 →</button>
-                        </div>
-                    </div>
-                </article>
 
-                <div class="posts-grid" id="posts-container">
-                </div>
+                <!-- 置顶文章（JS 动态渲染） -->
+                <div id="featured-post-container"></div>
 
-                <div class="pagination">
-                    <button class="btn-page active">1</button>
-                    <button class="btn-page">2</button>
-                    <button class="btn-page">3</button>
-                    <button class="btn-page">下一页 →</button>
-                </div>
+                <!-- 文章网格（JS 动态渲染） -->
+                <div class="posts-grid" id="posts-container"></div>
+
+                <!-- 分页（JS 动态生成） -->
+                <div class="pagination" id="pagination"></div>
             </section>
 
             <aside class="sidebar">
@@ -93,32 +72,73 @@
 
                 <div class="widget glass-card">
                     <h3>分类目录</h3>
-                    <ul class="category-list" id="category-list">
-                    </ul>
+                    <ul class="category-list" id="category-list"></ul>
                 </div>
 
                 <div class="widget glass-card">
                     <h3>热门标签</h3>
-                    <div class="tag-cloud" id="tag-cloud">
-                    </div>
+                    <div class="tag-cloud" id="tag-cloud"></div>
                 </div>
 
                 <div class="widget glass-card">
                     <h3>订阅更新</h3>
-                    <form class="subscribe-form" onsubmit="subscribe(event)">
+                    <form class="subscribe-form">
                         <input type="email" placeholder="输入邮箱地址" required />
                         <button type="submit">订阅</button>
                     </form>
                 </div>
             </aside>
         </div>
+
+        <!-- 关于页面（导航切换时显示） -->
+        <section class="about-section glass-card" id="about-section" style="display:none;">
+            <div class="about-page">
+                <div class="about-header">
+                    <div class="about-avatar-large">S</div>
+                    <h2>关于这个博客</h2>
+                </div>
+                <div class="about-body">
+                    <p>你好，我是 <strong>申浩天</strong>，计算机科学与技术专业本科在读。这个博客记录我在前端、后端、数据库和工程化方面的学习心得和项目实践。</p>
+                    <p>这里的内容涵盖以下方向：</p>
+                    <ul>
+                        <li><strong>前端开发：</strong>JavaScript、TypeScript、React、CSS 布局与响应式设计</li>
+                        <li><strong>后端开发：</strong>Node.js、Express、RESTful API 设计</li>
+                        <li><strong>数据库：</strong>MySQL 索引优化、MongoDB 聚合管道</li>
+                        <li><strong>工程化与工具：</strong>Webpack、Vite、Docker、GitHub Actions</li>
+                    </ul>
+                    <p>每一篇文章都来自实际项目中的真实问题和解决方案，力求做到"知其然，更知其所以然"。如果文章对你有帮助，欢迎通过订阅或联系方式与我交流。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系页面（导航切换时显示） -->
+        <section class="contact-section glass-card" id="contact-section" style="display:none;">
+            <div class="contact-page">
+                <h2>联系方式</h2>
+                <p>有任何问题或建议，欢迎通过以下方式联系我：</p>
+                <div class="contact-list">
+                    <div class="contact-item">
+                        <span class="contact-icon">@</span>
+                        <span>Email：shenhaotian@example.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">GH</span>
+                        <span>GitHub：github.com/shenhaotian</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">B</span>
+                        <span>博客：持续更新中</span>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
+    <!-- 文章弹窗 -->
     <article-modal id="article-modal" style="display: none;">
         <div class="modal-content glass-card">
-            <button class="modal-close" onclick="closeArticle()">×</button>
-            <div class="modal-body" id="modal-body">
-            </div>
+            <button class="modal-close" onclick="closeArticle()">&times;</button>
+            <div class="modal-body" id="modal-body"></div>
         </div>
     </article-modal>
 
