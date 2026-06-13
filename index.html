@@ -4,16 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>技术记录博客</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@700;800;900&family=Source+Sans+3:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="animated-bg">
-        <div class="gradient-orb orb-1"></div>
-        <div class="gradient-orb orb-2"></div>
-        <div class="gradient-orb orb-3"></div>
-    </div>
-
-    <header class="blog-header glass">
+    <header class="blog-header">
         <nav class="nav-container">
             <div class="logo">
                 <h1>技术记录</h1>
@@ -23,9 +20,6 @@
                     <input type="text" id="search-input" placeholder="搜索文章..." />
                     <button class="search-btn" onclick="searchPosts()">搜索</button>
                 </div>
-                <button class="theme-toggle" id="theme-toggle" title="切换主题">
-                    <span class="icon">🌙</span>
-                </button>
                 <ul class="nav-links">
                     <li><a href="#" class="active" data-page="home">首页</a></li>
                     <li><a href="#" data-page="articles">文章</a></li>
@@ -128,7 +122,7 @@
         </div>
     </article-modal>
 
-    <footer class="blog-footer glass">
+    <footer class="blog-footer">
         <div class="container">
             <p>&copy; 2026 申浩天。All rights reserved.</p>
         </div>

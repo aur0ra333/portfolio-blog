@@ -137,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderPosts();
     renderCategories();
     renderTags();
-    loadTheme();
     setupEventListeners();
 });
 
@@ -238,28 +237,8 @@ function subscribe(event) {
     event.target.reset();
 }
 
-// 主题切换
-function toggleTheme() {
-    document.body.classList.toggle('light-theme');
-    const isLight = document.body.classList.contains('light-theme');
-    const icon = document.getElementById('theme-toggle').querySelector('.icon');
-    icon.textContent = isLight ? '☀️' : '🌙';
-    localStorage.setItem('blogTheme', isLight ? 'light' : 'dark');
-}
-
-// 加载保存的主题
-function loadTheme() {
-    const savedTheme = localStorage.getItem('blogTheme');
-    if (savedTheme === 'light') {
-        document.body.classList.add('light-theme');
-        document.getElementById('theme-toggle').querySelector('.icon').textContent = '☀️';
-    }
-}
-
 // 设置事件监听
 function setupEventListeners() {
-    document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-    
     document.getElementById('search-input').addEventListener('keypress', (e) => {
         if (e.key === 'Enter') searchPosts();
     });
